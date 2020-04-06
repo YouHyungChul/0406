@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var fruit=["사과","딸기","바나나"];
+        var car = ["아우디","BMW","벤츠"];
+        var lang = ["Java","Python","R"];
+
+        var box = []; // javascript에서는 비어있는 배열 선언시 이 방법도 가능
+        box.push(fruit);
+        box.push(car);
+        box.push(lang);
+
+        for(var a=0; a<box.length; a++){
+            for(var n=0; n<box[a].length;n++){
+            document.write(box[a][n]);
+            }
+            document.write("<br>")
+        }
+
+        
+        
+        document.write(box[2][1]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

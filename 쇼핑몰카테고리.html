@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var topCategory;
+        var subCategory;
+        var topArray = ["상의","하의","액세서리","신발"];
+        var subArray = [
+            ["가디건","티셔츠","맨투맨","점퍼"],
+            ["면바지","반바지","청바지","치마"],
+            ["귀걸이","목걸이","시계","반지"],
+            ["구두","운동화","쓰레바","쪼리"]
+            ];
+
+        window.addEventListener("load", function(){
+            topCategory = document.getElementById("topCategory");
+            subCategory = document.getElementById("subCategory");
+
+            createTop();
+
+            topCategory.addEventListener("change", function(){
+                // alert(this.value);
+                //console.log("단신이 원하는 하위 아이템은", subArray[this.value]);
+
+                createSub(this.value); // 상위 카테고리 값을 전달하자!!
+                // 왜?? 
+            });
+
+        });
+        // 쇼핑몰의 최상위 카테고리 목록을 동적으로 생성해보자.
+        function createTop(){
+            var option = document.createElement("option");
+            option.text = "카테고리 선택";
+            topCategory.add(option);
+
+            for(var a = 0; a<topArray.length;a++){
+                var op = document.createElement("option");
+                op.text = topArray[a];
+                op.value=a;
+                topCategory.add(op); //select box 에 추가!!!
+
+                
+            }
+
+        }
+
+        function createSub(index){ //상위의 값을 가져오자.
+            // alert("당신이 선잭한 값은 " + index);
+
+                        // 자꾸 누적되므로, 기존에 존재하던 옵션들은 모두 제거해야 한다.
+            
+                        var n = subArray[index].length;
+             //배열이 지워지면 index의 순번이 전체적으로 변경되므로..
+             
+             for(var a = 0; a <n;a++){
+                subCategory.remove(0);
+                }
+
+             for(var i=0; i<n;i++){
+                var op= document.createElement("option");
+                op.text=subArray[index][i];
+                subCategory.add(op); // 서브 셀렉트 박스테 붗ㄱ하자
+                }
+                
+
+        }
+    </script>
+</head>
+<body>
+    <select id="topCategory"></select>
+    <select id="subCategory"></select>
+
+</body>
+</html>
